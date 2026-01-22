@@ -1,0 +1,10 @@
+
+flowchart LR
+    A[.LbeginXXX ラベル] --> C{rax の値が 0 か？}
+    C -- Yes --> D[.LendXXX ラベル
+    （ループ終了）]
+    C -- No --> E[条件が真のときの処理]
+    E --> F[.LstepXXX ラベル]
+    E -- continue --> F
+    E -- break --> D
+    F --> A

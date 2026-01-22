@@ -1,0 +1,7 @@
+
+flowchart LR
+    A{rax の値が 0 か？} -- No --> C[条件が真のときの処理]
+    C --> D[.LendXXX ラベル]
+    A -- Yes --> E[.LelseXXX ラベル]
+    E --> B[elseの処理]
+    B --> D

@@ -1,5 +1,23 @@
 // TODO
 
-global var
+global var --
 
-|| &&
+|| && --
+
+変数系の説明が乏しい
+
+定数
+
+struct
+
+break, continue --
+
+
+アラインメント --
+
+mov, movsx, movsxd --
+
+x86との違い ^^^
+
+.section .rodata --
+.section .bss --
