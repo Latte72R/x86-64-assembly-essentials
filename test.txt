@@ -1,0 +1,87 @@
+add
+sub
+imul
+idiv
+mov
+push
+pop
+rax
+rsp
+rbp
+rdi
+rsi
+rdx
+rcx
+関数
+引数
+if
+while
+for
+
+
+.intel_syntax noprefix
+.globl main
+
+add:
+  push rbp
+  mov rbp, rsp
+  mov dword ptr [rbp - 4], edi
+  mov dword ptr [rbp - 8], esi
+  mov eax, dword ptr [rbp - 4]
+  add eax, dword ptr [rbp - 8]
+  pop rbp
+  ret
+
+main:
+  mov edi, 5
+  mov esi, 4
+  call add
+  ret
+
+.intel_syntax noprefix
+.globl main
+a:
+  .long 0
+
+add_two:
+  mov eax, dword ptr [rip + a]
+  add rax, 2
+  mov dword ptr [rip + a], eax
+  
+main:
+  call add_two
+  mov eax, dword ptr [rip + a]
+  ret
+
+
+
+int main(void) {
+    int arr[4] = {4, 2, 6, 3};
+    return 2[arr];
+}
+
+int main(void) {
+    int x = 5;
+    return x+++3;
+}
+int main(void) {
+    return 0 ? 5/0 : 10;
+}
+.intel_syntax noprefix
+.globl main
+.extern printf
+main:
+  push rbp
+  mov rbp, rsp
+  lea rdi, [rip + .L0]
+  mov rax, 0
+  call printf
+  mov rax, 0
+  mov rsp, rbp
+  pop rbp
+  ret
+
+.section .rodata
+.L0:
+  .string "Hello,world!"
+
